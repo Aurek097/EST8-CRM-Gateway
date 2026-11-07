@@ -1,0 +1,6 @@
+{
+  "name": "EST8 CallDesk",
+  "description": "Phone-sales workspace and CRM for life insurance agents.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

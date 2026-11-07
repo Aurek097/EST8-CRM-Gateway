@@ -1,6 +1,7 @@
 # Phase 6A implementation and verification report
 
 ## Implemented
+
 - Settings → Phone System → A2P Registration, linked from desktop/mobile navigation and Numbers.
 - Five-step business/campaign wizard, progress, encrypted manual draft saving, conditional incorporated/public/sole-proprietor fields, validation and fee/authorization review.
 - US legal-business registration, independent versus actual EST8 legal entity authority; no automatic downline EIN sharing, no SSNs, no invented opt-in evidence.
@@ -15,7 +16,9 @@
 - Admin registration dashboard, fee/charge snapshots, approved/pending numbers, failed operations and messaging suspension.
 
 ## Telnyx endpoints integrated
+
 All under `https://api.telnyx.com/v2`:
+
 - GET `/10dlc/enum/{entityType,vertical,usecase,stockExchange}`
 - GET/POST `/10dlc/brand`; GET `/10dlc/brand/{brandId}`
 - GET/POST/PUT `/10dlc/brand/{brandId}/smsOtp`
@@ -30,6 +33,7 @@ All under `https://api.telnyx.com/v2`:
 Sources: [Telnyx OpenAPI](https://developers.telnyx.com/openapi/source/external/messaging/10dlc.json), [sole-proprietor guide](https://developers.telnyx.com/docs/messaging/10dlc/sole-proprietor), [campaign guide](https://developers.telnyx.com/docs/messaging/10dlc/campaign-registration).
 
 ## Actually tested
+
 - 37 tests passed: 20 A2P rule/mock-operation tests plus 16 calling/texting regression tests and 1 routing test.
 - A2P tests cover conditional EIN/mobile requirements, legal authority, provider enum validation, no assumed purchased-lead consent, carrier provisioning, association/pending states, suspension/stale status blocking, simulated success, duplicate locks and rejected-operation retry prevention.
 - Authenticated browser: opened wizard, displayed real Telnyx permission blocker, saved a harmless draft, reloaded and read it back, triggered missing-field validation, switched to sole proprietor and verified mobile replaces EIN, opened admin compliance section.
@@ -40,6 +44,7 @@ Sources: [Telnyx OpenAPI](https://developers.telnyx.com/openapi/source/external/
 - Cross-agent policies were inspected; a second signed-in agent end-to-end isolation test has not been performed. Full mocked server/database/provider integration tests remain to be added; existing mock tests exercise the paid-operation guard and pure rules, not every server action.
 
 ## Account requirements and production blockers
+
 1. Current account returns HTTP 403, code 10038 for 10DLC access. Registration permission/account upgrade must be granted by Telnyx; drafts remain available.
 2. Official brand/review fee documentation conflicts. An administrator must enter fees confirmed for this actual account and their source. Campaign use-case costs are retrieved live. Paid submission is blocked without a current complete review; no guessed charge was used.
 3. Publish this update before expecting the new status webhook on the public domain to work.

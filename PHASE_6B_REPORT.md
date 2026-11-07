@@ -1,6 +1,7 @@
 # Phase 6B status
 
 ## Added to the existing application
+
 - Three-step onboarding: Confirm Details, Review Messaging, Review & Authorize. Existing five-step detailed controls, OTP, appeals and history remain available.
 - Settings → Agency Administration → A2P Business Profile, with encrypted administrator-managed legal details, customer support, templates, privacy/terms/opt-in URLs, existing provider IDs and explicit individual legal-sender grants.
 - Server-enforced agency inheritance; independent agents keep separate business details. New agency registrations are limited to the designated legal representative, preventing each agent creating a duplicate paid brand.
@@ -14,6 +15,7 @@
 - Agent correction requests are visible in agency administration.
 
 ## Verified
+
 - Signed-in browser: three-step navigation, unchecked personal/legal/billing attestations, blocked submission, draft saving, encrypted admin profile draft saved and read back after reload.
 - Public form correctly displays awaiting verified details instead of pretending an opt-in process exists.
 - Desktop/mobile screenshots inspected; 390px layout has no horizontal overflow.
@@ -22,6 +24,7 @@
 - No Telnyx registrations, OTPs, appeals, number associations or actual SMS submitted during testing; no real fees incurred.
 
 ## Still required / limitations
+
 - Enter real agency legal/support details, privacy/terms URLs and designate the actual legal representative; verify per-agent authority separately from downline membership.
 - Publish the form, submit a controlled inquiry, inspect recorded consent and confirm the published process. Fully configured public submission was not exercised because no genuine verified agency configuration was supplied.
 - Telnyx must grant 10DLC access; confirm actual fees before paid authorization. Approved brand/campaign and number associations are not assumed.
